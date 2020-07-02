@@ -1,11 +1,11 @@
 /*
-* Copyright © 2018. TIBCO Software Inc.
+* Copyright © 2020. TIBCO Software Inc.
 * This file is subject to the license terms contained
 * in the license file that is distributed with this file.
  */
 
-// Package commands is the one containing all the cli commands
-package commands
+// Package cmd is the one containing all the cli commands
+package cmd
 
 import (
 	"fmt"
@@ -15,16 +15,16 @@ import (
 )
 
 var (
-	// VersionCmd prints out the current cli version
-	VersionCmd = &cobra.Command{
+	// versionCmd prints out the current cli version
+	versionCmd = &cobra.Command{
 		Use:   "version",
 		Short: "Print the app version",
 		Run:   printVersion,
 	}
 )
 
-// GetVersion return version of CLI/node and commit hash
-func GetVersion() string {
+// getVersion return version of CLI/node and commit hash
+func getVersion() string {
 	v := version.Version
 	if version.GitCommit != "" {
 		v = v + "-" + version.GitCommit
@@ -34,6 +34,6 @@ func GetVersion() string {
 
 // printVersion prints the version
 func printVersion(cmd *cobra.Command, args []string) {
-	v := GetVersion()
+	v := getVersion()
 	fmt.Println(v)
 }

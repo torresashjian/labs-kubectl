@@ -6,9 +6,9 @@
 package main
 
 import (
-	"github.com/torresashjian/labs-kubectl/commands"
+	"github.com/torresashjian/labs-kubectl/cmd"
 )
 
 func main() {
-	commands.Execute()
+	cmd.Execute()
 }
